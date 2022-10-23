@@ -22,7 +22,7 @@ public class Main {
     public static HttpServer startServer() {
         // create a resource config that scans for JAX-RS resources and providers
         // in br.com.coffe.coffeapi package
-        final ResourceConfig rc = new ResourceConfig().packages("br.com.coffe.coffeapi");
+        final ResourceConfig rc = new ResourceConfig().packages("br.com.coffe.controller");
 
         // create and start a new instance of grizzly http server
         // exposing the Jersey application at BASE_URI
@@ -34,7 +34,8 @@ public class Main {
      * @param args
      * @throws IOException
      */
-    public static void main(String[] args) throws IOException {
+    @SuppressWarnings("deprecation")
+	public static void main(String[] args) throws IOException {
         final HttpServer server = startServer();
         System.out.println(String.format("Jersey app started with endpoints available at "
                 + "%s%nHit Ctrl-C to stop it...", BASE_URI));
