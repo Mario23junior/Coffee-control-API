@@ -28,7 +28,10 @@ public class cofferRepository {
 		trescoracoes.setDataDeFabricacao(LocalDate.now());
 		trescoracoes.setDataDeValidade(LocalDate.now().plusYears(1));
 		trescoracoes.setPreco(5.10);
-		listAllCoffer.add(pilao);
-		
+		listAllCoffer.add(pilao);	
  	}
+	
+	public static List<Coffe> findAll(){
+		return listAllCoffer;
+	}
 }
