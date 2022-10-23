@@ -23,11 +23,12 @@ public class cofferRepository {
 		listAllCoffer.add(trescoracoes);
 		
 		Coffe pilao = new Coffe();
-		trescoracoes.setId(11l);
-		trescoracoes.setNome("Cafe Pilão");
-		trescoracoes.setDataDeFabricacao(LocalDate.now());
-		trescoracoes.setDataDeValidade(LocalDate.now().plusYears(1));
-		trescoracoes.setPreco(5.10);
+		pilao.setId(11l);
+		pilao.setNome("Cafe pilão");
+		pilao.setDataDeFabricacao(LocalDate.now());
+		pilao.setDataDeValidade(LocalDate.now().plusYears(1));
+		pilao.setPreco(05.10);
+		
 		listAllCoffer.add(pilao);	
  	}
 	
