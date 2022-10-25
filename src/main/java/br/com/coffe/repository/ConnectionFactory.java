@@ -26,7 +26,6 @@ public class ConnectionFactory {
 		this.pass = pass;
 		this.driver = driver;
 	}
-
  
 	public static ConnectionFactory getInstance() {
 
