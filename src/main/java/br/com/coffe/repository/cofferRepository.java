@@ -1,38 +1,54 @@
 package br.com.coffe.repository;
 
-import java.time.LocalDate;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
 import br.com.coffe.model.Coffe;
 
-public class cofferRepository {
+public class cofferRepository extends Repository{
   
-	private static List<Coffe> listAllCoffer = null;
-	
-	static {
-		listAllCoffer = new ArrayList<>();
-		
-		Coffe trescoracoes = new Coffe();
-		trescoracoes.setId(10l);
-		trescoracoes.setNome("Cafe tres corações");
-		trescoracoes.setDataDeFabricacao(LocalDate.now());
-		trescoracoes.setDataDeValidade(LocalDate.now().plusYears(1));
-		trescoracoes.setPreco(8.20);
-		
-		listAllCoffer.add(trescoracoes);
-		
-		Coffe pilao = new Coffe();
-		pilao.setId(11l);
-		pilao.setNome("Cafe pilão");
-		pilao.setDataDeFabricacao(LocalDate.now());
-		pilao.setDataDeValidade(LocalDate.now().plusYears(1));
-		pilao.setPreco(05.10);
-		
-		listAllCoffer.add(pilao);	
- 	}
-	
+	 
 	public static List<Coffe> findAll(){
-		return listAllCoffer;
+		
+		String sql = "SELECT * FROM coffe";
+		List<Coffe> retorno = new ArrayList<Coffe>();
+		
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+	
+		try {
+			ps = getConnection().prepareStatement(sql);
+			rs = ps.executeQuery();
+			
+			while(rs.next()) {
+				
+				Coffe cafe = new Coffe();
+				cafe.setNome(rs.getString("Nome"));
+				cafe.setPreco(rs.getDouble("preco"));
+				cafe.setDataDeFabricacao(rs.getDate("data_de_fabricacao").toLocalDate());
+				cafe.setDataDeValidade(rs.getDate("data_de_validade").toLocalDate());
+				retorno.add(cafe);
+			}
+			
+			if(rs.isBeforeFirst()) {
+				System.out.println("Não foram encontrados registros no banco de dados");
+			}
+			
+		} catch (SQLException e) {
+ 			e.printStackTrace();
+ 			System.out.println("Não foi possivel consultar cafes.");
+		}
+		return retorno;
 	}
 }
+
+
+
+
+
+
+
+

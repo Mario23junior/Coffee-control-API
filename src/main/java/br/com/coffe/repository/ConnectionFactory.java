@@ -40,7 +40,7 @@ public class ConnectionFactory {
 		FileInputStream file = null;
 		String debugar = "";
 		try {
-			file = new FileInputStream("./src/main/resource/application.properties");
+			file = new FileInputStream("resource/application.properties");
 			prop.load(file);
 
 			String url = prop.getProperty("datasource.url");

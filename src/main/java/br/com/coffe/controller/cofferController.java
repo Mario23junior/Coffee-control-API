@@ -18,7 +18,7 @@ public class cofferController {
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response list() {
 		List<Coffe> findList = cofferRepository.findAll();
-		ResponseBuilder response = Response.ok();
+ 		ResponseBuilder response = Response.ok();
 		response.entity(findList);
 		
 		return response.build();

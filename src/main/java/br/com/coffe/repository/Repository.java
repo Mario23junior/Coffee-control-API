@@ -15,9 +15,7 @@ public class Repository {
 		getConnection();
 	}
 
-	   
-	
-	
+	  
 	
 	public static Connection getConnection() {
 		try {
