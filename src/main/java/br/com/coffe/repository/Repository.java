@@ -15,13 +15,10 @@ public class Repository {
 		getConnection();
 	}
 
-	/**
-	 * Consegue uma conexão com o banco de dados
-	 * 
-	 * @see ConnectionFactory#getInstance()
-	 * 
-	 * @return
-	 */
+	   
+	
+	
+	
 	public static Connection getConnection() {
 		try {
 			connection = ConnectionFactory.getInstance().getConnection();
@@ -33,9 +30,7 @@ public class Repository {
 	}
 	
  
-	/**
-	 * Fecha a conexão com o banco de dados
-	 */
+ 
 	public static void closeConnection() {
 
 		try {

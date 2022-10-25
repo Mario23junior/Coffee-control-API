@@ -26,7 +26,6 @@ public class Coffe {
 	private LocalDate dataDeValidade;
 	
 	
-
 	public Coffe(Long id, @NotBlank(message = "Nome do cafe não poder esta em branco.") String nome,
 			@NotNull(message = "O preço deve ser informado.") @PositiveOrZero(message = "Preço deve ser maior que zero") Double preco,
 			@PastOrPresent(message = "A data de fabricação dever deve ser menor ou igual a hoje.") LocalDate dataDeFabricacao,
